@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synicon IT Solutions | Web Development Experts</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="d:\html\SYNICON IT\images\logo1.png">
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+ 
+        :root {
+            --primary: #2563eb;
+            --secondary: #0f172a;
+            --accent: #7c3aed;
+            --light: #f8fafc;
+            --gray: #94a3b8;
+            --orange: #f97316;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--secondary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        .logo-text span {
+            color: var(--primary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            transition: all 0.3s ease;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a.active {
+            background: var(--primary);
+            color: white !important;
+            padding: 8px 16px;
+            border-radius: 6px;
+            box-shadow: 0 0 10px rgba(37, 99, 235, 0.5);
+            transition: all 0.1s;
+        }
+
+        nav a.active:hover {
+            background: var(--primary); 
+            color: white !important;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .nav-btn {
+            background: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        .nav-btn:hover {
+            background: #1d4ed8;
+            color: white;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--secondary);
+            z-index: 150;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 160px 0 100px;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: var(--orange);
+        }
+
+        .hero-title span {
+            color: var(--primary);
+        }
+
+        .hero-desc {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: #f1f5f9;
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 10px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Page Content Styles */
+        .page-content {
+            padding-top: 120px;
+        }
+
+        .page-header {
+            text-align: center;
+            padding: 80px 0 40px;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            margin-bottom: 60px;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+
+        .page-desc {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: #e0f2fe;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: var(--primary);
+            font-size: 28px;
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+
+        .service-desc {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        .service-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary);
+            color: white;
+            padding: 80px 0 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-col h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+
+        .social-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 101;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 10px;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .close-button {
+            color: #aaa;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: #000;
+            text-decoration: none;
+        }
+        
+        /* Mobile responsive styles */
+@media (max-width: 768px) {
+    .header-container {
+        padding: 15px 20px; /* Adjusted padding for better fit */
+    }
+
+    /* Hide the default navigation on mobile */
+    nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 80px; /* Should be height of the header + some padding */
+        left: 0;
+        width: 100%;
+        background-color: white;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px 0;
+        z-index: 99;
+    }
+
+    /* Class added by JavaScript to show the menu */
+    nav ul.active {
+        display: flex;
+    }
+
+    nav ul li {
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    nav ul li a {
+        padding: 10px 0;
+        display: block;
+    }
+    
+    /* Ensure active link styling is visible on mobile */
+    nav a.active {
+        display: block;
+        width: fit-content;
+        margin: 0 auto;
+    }
+
+    .mobile-menu-btn {
+        display: block; /* Show the mobile button */
+    }
+
+    .page-title {
+        font-size: 2.3rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+}
+    </style>
+</head>
+<body>
+<header>
+    <div class="container header-container">
+        <div class="logo">
+            <div><img src="images/logo1.png" alt="Synicon Logo" style="width: 32px; height: 32px;"></div>
+            <div class="logo-text">SYNICON <span>IT SOLUTIONS</span></div>
+        </div>
+        <nav>
+            <ul id="nav-menu"> 
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+        <button class="mobile-menu-btn" aria-label="Toggle mobile menu">
+            <i class="fas fa-bars" id="mobile-icon"></i>
+        </button>
+    </div>
+</header>
+
+    <section class="page-content">
+        <div class="page-header">
+            <h1 class="page-title">Our Services</h1>
+            <p class="page-desc">We offer a comprehensive range of web development services to help your business thrive online.</p>
+        </div>
+        <div class="container">
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3 class="service-title">Custom Web Development</h3>
+                    <p class="service-desc">Tailor-made websites and web applications designed to meet your specific business requirements.</p>
+                    <a href="#" class="service-link" data-service-id="custom-webdev-info">Learn more <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3 class="service-title">E-Commerce Solutions</h3>
+                    <p class="service-desc">Powerful online stores with secure payment gateways and intuitive shopping experiences.</p>
+                    <a href="#" class="service-link" data-service-id="ecommerce-info">Learn more <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="service-title">Responsive Graphics Design</h3>
+                    <p class="service-desc">Websites that look beautiful and function perfectly on all devices and screen sizes.</p>
+                    <a href="#" class="service-link" data-service-id="responsive-design-info">Learn more <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3 class="service-title">3D Printing</h3>
+                    <p class="service-desc">Transform your ideas into reality with our advanced 3D printing services.</p>
+                    <a href="#" class="service-link" data-service-id="3d-printing-info">Learn more <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="service-title">Website Maintenance</h3>
+                    <p class="service-desc">Ongoing support and maintenance to ensure your website is always secure, fast, and up-to-date.</p>
+                    <a href="#" class="service-link" data-service-id="maintenance-info">Learn more <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="service-title">SEO Optimization</h3>
+                    <p class="service-desc">Improve your website's visibility and ranking on search engines to attract more organic traffic.</p>
+                    <a href="#" class="service-link" data-service-id="seo-info">Learn more <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div id="modal-body">
+                </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Synicon IT Solutions</h4>
+                    <p>We create digital experiences that help businesses grow and succeed in the online world.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/syniconitsolutions"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/synicon_it_solutions?igsh=MWdtb2RkcGRoY20waQ=="><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="https://wa.me/918766531545?text=Hello, I would like to know more about your web development services.">Support</a></li>
+                    
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <ul>
+                       <li><a href="#">AP-DAHIWADI TAL-SINNAR DIST-NASHIK</a></li>
+                        <li><a href="#">syniconitsolutions@gmail.com</a></li>
+                        <li><a href="#">+91 8766531545</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Synicon IT Solutions. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Get all nav links for active state logic
+        const navLinks = document.querySelectorAll("nav ul li a");
+        const currentPage = window.location.pathname.split("/").pop() || "index.html";
+        navLinks.forEach(link => {
+            if (link.getAttribute("href") === currentPage) {
+                link.classList.add("active");
+            }
+        });
+        
+        // --- MOBILE MENU FUNCTIONALITY (Replace Existing Logic) ---
+
+// Mobile menu toggle functionality
+const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+const navMenu = document.getElementById('nav-menu'); // Target the <ul> with the ID
+const mobileIcon = document.getElementById('mobile-icon'); // Target the <i> icon with the ID
+
+mobileMenuBtn.addEventListener('click', () => {
+    // Toggles the 'active' class which the CSS uses to show the menu
+    navMenu.classList.toggle('active');
+    
+    // Toggle the icon between bars (fa-bars) and close (fa-times)
+    if (navMenu.classList.contains('active')) {
+        mobileIcon.classList.remove('fa-bars');
+        mobileIcon.classList.add('fa-times');
+    } else {
+        mobileIcon.classList.remove('fa-times');
+        mobileIcon.classList.add('fa-bars');
+    }
+});
+
+// --- END MOBILE MENU FUNCTIONALITY ---
+        // Modal functionality
+        const modal = document.getElementById("modal");
+        const modalBody = document.getElementById("modal-body");
+        const closeButton = document.querySelector(".close-button");
+        const serviceLinks = document.querySelectorAll(".service-link");
+
+        // Service details data
+        const serviceDetails = {
+            "custom-webdev-info": {
+                title: "Custom Web Development",
+                description: "Our Custom Web Development service delivers tailor-made websites and web applications built to match your unique business needs. We use modern technologies and best practices to ensure your site is fast, secure, and scalable.",
+                list: [
+                    "Unique design & branding",
+                    "Custom features & integrations",
+                    "Performance optimization",
+                    "Scalable architecture",
+                    "Ongoing support & updates"
+                ]
+            },
+            "ecommerce-info": {
+                title: "E-Commerce Solutions",
+                description: "Our E-Commerce Solutions provide robust online stores with secure payment gateways, inventory management, and user-friendly shopping experiences. We integrate popular platforms like Shopify, WooCommerce, and Magento, and offer custom solutions tailored to your business needs.",
+                list: [
+                    "Custom store design & development",
+                    "Payment gateway integration",
+                    "Product catalog management",
+                    "Order tracking & analytics",
+                    "Mobile-friendly shopping experience"
+                ]
+            },
+            "responsive-design-info": {
+                title: "Responsive Graphics Design",
+                description: "Our Responsive Graphics Design service ensures your website looks stunning and functions perfectly on all devices. We create visually appealing layouts, business logos, social media posters, banners, and more to strengthen your brand identity across digital platforms.",
+                list: [
+                    "Mobile-friendly website design",
+                    "Business logo creation",
+                    "Social media posters & banners",
+                    "Custom graphics for web & print",
+                    "Consistent branding across platforms"
+                ]
+            },
+            "3d-printing-info": {
+                title: "3D Printing",
+                description: "Our 3D Printing service offers high-quality additive manufacturing solutions for various industries. We use advanced 3D printing technologies to create prototypes, custom parts, and intricate designs with precision and speed.",
+                list: [
+                    "Custom 3D modeling & design",
+                    "Rapid prototyping services",
+                    "Material selection & sourcing",
+                    "Post-processing & finishing",
+                    "Training & ongoing support"
+                ]
+            },
+            "maintenance-info": {
+                title: "Website Maintenance",
+                description: "Our Website Maintenance service provides ongoing support to keep your site secure, fast, and up-to-date. We handle updates, backups, security monitoring, and performance optimization so you can focus on your business.",
+                list: [
+                    "Regular updates & security patches",
+                    "Performance monitoring & optimization",
+                    "Backup & restore services",
+                    "Bug fixes & troubleshooting",
+                    "Technical support & consultation"
+                ]
+            },
+            "seo-info": {
+                title: "SEO Optimization",
+                description: "Our SEO Optimization service helps improve your website’s visibility and ranking on search engines. We use proven strategies to attract more organic traffic and boost your online presence.",
+                list: [
+                    "Keyword research & analysis",
+                    "On-page & off-page optimization",
+                    "Technical SEO audits",
+                    "Content strategy & creation",
+                    "Performance tracking & reporting"
+                ]
+            }
+        };
+
+        // Function to open the modal with specific content
+        function openModal(serviceId) {
+            const details = serviceDetails[serviceId];
+            if (!details) return;
+
+            let listHtml = details.list.map(item => `<li>${item}</li>`).join('');
+
+            modalBody.innerHTML = `
+                <h4 style="margin-bottom:10px;">${details.title}</h4>
+                <p>${details.description}</p>
+                <ul style="margin-left:20px;">
+                    ${listHtml}
+                </ul>
+            `;
+            modal.style.display = "flex";
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            modal.style.display = "none";
+            modalBody.innerHTML = ""; // Clear content on close
+        }
+
+        // Add event listeners to each "Learn more" link
+        serviceLinks.forEach(link => {
+            link.addEventListener("click", function(event) {
+                event.preventDefault();
+                const serviceId = this.getAttribute("data-service-id");
+                openModal(serviceId);
+            });
+        });
+
+        // Add event listener to the close button
+        closeButton.addEventListener("click", closeModal);
+
+        // Close the modal if the user clicks outside of it
+        window.addEventListener("click", function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
